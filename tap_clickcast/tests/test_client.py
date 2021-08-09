@@ -1,10 +1,8 @@
 """Tests standard tap features using the built-in SDK tests library."""
 
 import json
-from types import SimpleNamespace
 from tap_clickcast.streams import EmployersStream
 from tap_clickcast.tap import TapClickcast
-from tap_clickcast.client import ClickcastStream
 
 SAMPLE_CONFIG = {"partner_token": "testing"}
 
@@ -62,10 +60,10 @@ def test_get_next_page_token_returns_next_page():
 def test_get_next_page_token_returns_none_if_on_last_page():
     res = build_basic_response(6)
     actual = BASE_CLIENT.get_next_page_token(res, None)
-    assert actual == None
+    assert actual is None
 
 
 def test_get_next_page_token_returns_none_if_only_one_page():
     res = build_basic_response(1, page_count=1)
     actual = BASE_CLIENT.get_next_page_token(res, None)
-    assert actual == None
+    assert actual is None

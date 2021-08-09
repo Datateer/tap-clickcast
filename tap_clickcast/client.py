@@ -2,7 +2,7 @@
 
 import requests
 from pathlib import Path
-from typing import Any, Dict, Optional, Union, List, Iterable
+from typing import Any, Dict, Optional, Iterable
 
 from singer_sdk.helpers.jsonpath import extract_jsonpath
 from singer_sdk.streams import RESTStream
@@ -50,7 +50,9 @@ class ClickcastStream(RESTStream):
         page_count = next(iter(matches), None)
         return page_count
 
-    def get_next_page_token(self, response: requests.Response, previous_token: Optional[Any]) -> Optional[Any]:
+    def get_next_page_token(
+        self, response: requests.Response, previous_token: Optional[Any]
+    ) -> Optional[Any]:
         """Return a token for identifying next page or None if no more pages."""
         # TODO: If pagination is required, return a token which can be used to get the
         #       next page. If this is the final page, return "None" to end the
@@ -64,7 +66,9 @@ class ClickcastStream(RESTStream):
 
         return next_page_token
 
-    def get_url_params(self, context: Optional[dict], next_page_token: Optional[Any]) -> Dict[str, Any]:
+    def get_url_params(
+        self, context: Optional[dict], next_page_token: Optional[Any]
+    ) -> Dict[str, Any]:
         """Return a dictionary of values to be used in URL parameterization."""
         params: dict = {}
         if next_page_token:
@@ -74,7 +78,9 @@ class ClickcastStream(RESTStream):
             params["order_by"] = self.replication_key
         return params
 
-    def prepare_request_payload(self, context: Optional[dict], next_page_token: Optional[Any]) -> Optional[dict]:
+    def prepare_request_payload(
+        self, context: Optional[dict], next_page_token: Optional[Any]
+    ) -> Optional[dict]:
         """Prepare the data payload for the REST API request.
 
         By default, no payload will be sent (return None).

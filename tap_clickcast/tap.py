@@ -24,7 +24,11 @@ class TapClickcast(Tap):
     config_jsonschema = th.PropertiesList(
         th.Property("partner_token", th.StringType, required=True),
         th.Property("start_date", th.DateTimeType),
-        th.Property("api_url_base", th.StringType, default="https://api.clickcast.cloud/clickcast/api"),
+        th.Property(
+            "api_url_base",
+            th.StringType,
+            default="https://api.clickcast.cloud/clickcast/api",
+        ),
     ).to_dict()
 
     def discover_streams(self) -> List[Stream]:

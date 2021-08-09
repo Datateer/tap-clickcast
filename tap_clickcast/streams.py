@@ -1,8 +1,5 @@
 """Stream type classes for tap-clickcast."""
 
-from pathlib import Path
-from typing import Any, Dict, Optional, Union, List, Iterable
-
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_clickcast.client import ClickcastStream
@@ -19,7 +16,8 @@ class EmployersStream(ClickcastStream):
     primary_keys = ["employer_id"]
     replication_key = None
     schema = th.PropertiesList(
-        th.Property("employer_id", th.StringType), th.Property("employer_name", th.StringType)
+        th.Property("employer_id", th.StringType),
+        th.Property("employer_name", th.StringType),
     ).to_dict()
 
 
