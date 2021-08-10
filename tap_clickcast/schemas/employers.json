@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "/employers.json",
+  "type": "object",
+  "properties": {
+    "employer_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "employer_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "enterprise_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

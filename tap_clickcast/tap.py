@@ -23,7 +23,6 @@ class TapClickcast(Tap):
     # TODO: Update this section with the actual config values you expect:
     config_jsonschema = th.PropertiesList(
         th.Property("partner_token", th.StringType, required=True),
-        th.Property("start_date", th.DateTimeType),
         th.Property(
             "api_url_base",
             th.StringType,

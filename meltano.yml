@@ -5,6 +5,7 @@ plugins:
   extractors:
   - name: tap-clickcast
     namespace: tap_clickcast
+    pip_url: dummy
     executable: /home/adam/dev/tap-clickcast/tap-clickcast.sh
     capabilities:
     - state
@@ -13,10 +14,12 @@ plugins:
     settings:
     - name: partner_token
       kind: password
-    - name: start_date
-      value: '2010-01-01T00:00:00Z'
+    - name: api_url_base
     config:
-      start_date: '2010-01-01T00:00:00Z'
+      api_url_base: https://api.clickcast.cloud/clickcast/api
+    select:
+    - employers.employer_id
+    - employers.employer_name
   loaders:
   - name: target-jsonl
     variant: andyh1203

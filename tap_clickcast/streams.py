@@ -1,24 +1,18 @@
 """Stream type classes for tap-clickcast."""
-
-from singer_sdk import typing as th  # JSON Schema typing helpers
+from pathlib import Path
 
 from tap_clickcast.client import ClickcastStream
 
-# TODO: Delete this is if not using json files for schema definition
-# SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
-# TODO: - Override `UsersStream` and `GroupsStream` with your own stream definition.
-#       - Copy-paste as many times as needed to create multiple stream types.
+SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 
 class EmployersStream(ClickcastStream):
     name = "employers"
     path = "/employers"
+    schema_filepath = SCHEMAS_DIR / "employers.json"
     primary_keys = ["employer_id"]
     replication_key = None
-    schema = th.PropertiesList(
-        th.Property("employer_id", th.StringType),
-        th.Property("employer_name", th.StringType),
-    ).to_dict()
+    # how to limit ot just the selected fields?
 
 
 # class UsersStream(ClickcastStream):

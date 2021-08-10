@@ -50,9 +50,7 @@ class ClickcastStream(RESTStream):
         page_count = next(iter(matches), None)
         return page_count
 
-    def get_next_page_token(
-        self, response: requests.Response, previous_token: Optional[Any]
-    ) -> Optional[Any]:
+    def get_next_page_token(self, response: requests.Response, previous_token: Optional[Any]) -> Optional[Any]:
         """Return a token for identifying next page or None if no more pages."""
         # TODO: If pagination is required, return a token which can be used to get the
         #       next page. If this is the final page, return "None" to end the
@@ -66,9 +64,7 @@ class ClickcastStream(RESTStream):
 
         return next_page_token
 
-    def get_url_params(
-        self, context: Optional[dict], next_page_token: Optional[Any]
-    ) -> Dict[str, Any]:
+    def get_url_params(self, context: Optional[dict], next_page_token: Optional[Any]) -> Dict[str, Any]:
         """Return a dictionary of values to be used in URL parameterization."""
         params: dict = {}
         if next_page_token:
@@ -76,17 +72,25 @@ class ClickcastStream(RESTStream):
         if self.replication_key:
             params["sort"] = "asc"
             params["order_by"] = self.replication_key
+        if self.metadata:
+            fields = [
+                item["breadcrumb"][1]
+                for item in self.metadata
+                if "breadcrumb" in item
+                and len(item["breadcrumb"]) == 2
+                and (
+                    "inclusion" in item["metadata"]
+                    and (
+                        item["metadata"]["inclusion"] == "automatic"
+                        or (
+                            item["metadata"]["inclusion"] == "available"
+                            and ("selected" in item["metadata"] and item["metadata"]["selected"] is True)
+                        )
+                    )
+                )
+            ]
+            params["fields"] = ",".join(fields)
         return params
-
-    def prepare_request_payload(
-        self, context: Optional[dict], next_page_token: Optional[Any]
-    ) -> Optional[dict]:
-        """Prepare the data payload for the REST API request.
-
-        By default, no payload will be sent (return None).
-        """
-        # TODO: Delete this method if no payload is required. (Most REST APIs.)
-        return None
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""
