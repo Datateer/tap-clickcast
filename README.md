@@ -26,11 +26,11 @@ tap-clickcast --about
 ```
 
 partner_token
-: The Clickcast API Partner Token. You can generate these at https://api.clickcast.cloud/clickcast/home#/tokens. This value is used to authenticate with the API by passing it to the header `X-Partner-Token`
+: The Clickcast API Partner Token. This value is used to authenticate with the API by passing it to the header `X-Partner-Token`
 
 ### Source Authentication and Authorization
 
-- [ ] `Developer TODO:` If your tap requires special access on the source system, or any special authentication requirements, provide those here.
+You can generate a Partner Token at https://api.clickcast.cloud/clickcast/home#/tokens
 
 ## Usage
 

@@ -1,6 +1,7 @@
 # Secrets and internal config files
 .env
 **/.secrets/*
+.meltano/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
