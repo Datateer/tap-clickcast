@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.4 (2021-08-11)
+### Fix
+* First release ([`f3410c7`](https://github.com/Datateer/tap-clickcast/commit/f3410c76e33e2c33f1d3c04704bc1ba02464f29a))
+
 ## v0.1.3 (2021-08-11)
 ### Fix
 * First release ([`3435f65`](https://github.com/Datateer/tap-clickcast/commit/3435f655a551d170965bb3c5fd7764469564609c))
