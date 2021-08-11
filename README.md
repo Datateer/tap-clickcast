@@ -6,8 +6,6 @@ Built with the Meltano [SDK](https://gitlab.com/meltano/sdk) for Singer Taps. Mo
 
 ## Installation
 
-- [ ] `Developer TODO:` Update the below as needed to correctly describe the install procedure. For instance, if you do not have a PyPi repo, or if you want users to directly install from your git repo, you can modify this step as appropriate.
-
 ```bash
 pipx install tap-clickcast
 ```
@@ -27,6 +25,8 @@ tap-clickcast --about
 
 partner_token
 : The Clickcast API Partner Token. This value is used to authenticate with the API by passing it to the header `X-Partner-Token`
+api_url_base
+: The Clickcast API base URL. Defaults to https://api.clickcast.cloud/clickcast/api
 
 ### Source Authentication and Authorization
 
@@ -45,8 +45,6 @@ tap-clickcast --config CONFIG --discover > ./catalog.json
 ```
 
 ## Developer Resources
-
-- [ ] `Developer TODO:` As a first step, scan the entire project for the text "`TODO:`" and complete any recommended steps, deleting the "TODO" references once completed.
 
 ### Initialize your Development Environment
 
@@ -68,6 +66,14 @@ You can also test the `tap-clickcast` CLI interface directly using `poetry run`:
 
 ```bash
 poetry run tap-clickcast --help
+```
+
+### Manual test run
+
+Create a config file that contains a `partner_token` property, then run
+
+```bash
+poetry run tap-clickcast --config config.json
 ```
 
 ### Testing with [Meltano](https://www.meltano.com)

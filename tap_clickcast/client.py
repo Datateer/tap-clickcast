@@ -52,9 +52,8 @@ class ClickcastStream(RESTStream):
 
     def get_next_page_token(self, response: requests.Response, previous_token: Optional[Any]) -> Optional[Any]:
         """Return a token for identifying next page or None if no more pages."""
-        # TODO: If pagination is required, return a token which can be used to get the
-        #       next page. If this is the final page, return "None" to end the
-        #       pagination loop.
+        next_page_token = None
+
         current = self.get_current_page(response)
         count = self.get_page_count(response)
         if current == count:

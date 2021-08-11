@@ -5,7 +5,7 @@ plugins:
   extractors:
   - name: tap-clickcast
     namespace: tap_clickcast
-    pip_url: dummy
+    pip_url: fake
     executable: /home/adam/dev/tap-clickcast/tap-clickcast.sh
     capabilities:
     - state
@@ -18,8 +18,35 @@ plugins:
     config:
       api_url_base: https://api.clickcast.cloud/clickcast/api
     select:
+    - campaigns.campaign_id
+    - campaigns.campaign_name
+    - campaigns.employer_id
     - employers.employer_id
     - employers.employer_name
+    - jobstats.employer_id
+    - jobstats.campaign_id
+    - jobstats.job_id,
+    - jobstats.applies
+    - jobstats.apply_starts
+    - jobstats.clicks
+    - jobstats.cpa
+    - jobstats.cpc
+    - jobstats.spend
+    - jobs.job_id
+    - jobs.campaign_id
+    - jobs.employer_id
+    - jobs.location
+    - jobs.date_posted
+    - jobs.city
+    - jobs.state
+    - jobs.zip
+    - jobs.country
+    - jobs.job_title
+    - publishers.publisher_id
+    - publishers.publisher_name
+    - publishers.group
+    - publishers.name_simple
+    - jobs.*
   loaders:
   - name: target-jsonl
     variant: andyh1203

@@ -1,9 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft-04/schema",
-  "$id": "/employers.json",
+  "$id": "/jobstats.json",
   "type": "object",
   "properties": {
-    "employer_id": {
+    "job_id": {
       "type": [
         "integer"
       ]
@@ -14,279 +14,255 @@
         "null"
       ]
     },
-    "enterprise_id": {
+    "campaign_id": {
       "type": [
         "integer",
         "null"
       ]
     },
-    "enterprise_name": {
+    "campaign_name": {
       "type": [
         "string",
         "null"
       ]
     },
-    "status": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "agency_id": {
+    "publisher_id": {
       "type": [
         "integer",
         "null"
       ]
     },
-    "agency_name": {
+    "publisher_name": {
       "type": [
         "string",
         "null"
       ]
     },
-    "api_managed": {
-      "type": [
-        "boolean",
-        "null"
-      ]
-    },
-    "ats": {
+    "start_date": {
       "type": [
         "string",
         "null"
       ]
     },
-    "budget_monthly": {
+    "end_date": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "job_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "job_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "job_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "applies": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "apply_starts": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "average_apply_time": {
       "type": [
         "number",
         "null"
       ]
     },
-    "campaign_budget_monthly": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "campaign_budget_notification": {
-      "type": [
-        "boolean",
-        "null"
-      ]
-    },
-    "campaign_budget_weekly": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "campaign_job_budget": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "campaign_max_applies": {
+    "clicks": {
       "type": [
         "integer",
         "null"
       ]
     },
-    "campaign_max_paid_applies": {
-      "type": [
-        "integer",
-        "null"
-      ]
-    },
-    "campaign_max_apply_starts": {
-      "type": [
-        "integer",
-        "null"
-      ]
-    },
-    "campaign_max_clicks": {
-      "type": [
-        "integer",
-        "null"
-      ]
-    },
-    "campaign_max_paid_clicks": {
-      "type": [
-        "integer",
-        "null"
-      ]
-    },
-    "campaign_reset_job_budget": {
-      "type": [
-        "boolean",
-        "null"
-      ]
-    },
-    "campaign_sponsor_jobs_in_campaign": {
-      "type": [
-        "boolean",
-        "null"
-      ]
-    },
-    "campaign_sponsor_jobs_monthly": {
-      "type": [
-        "boolean",
-        "null"
-      ]
-    },
-    "campaign_sponsor_jobs_on_create": {
-      "type": [
-        "boolean",
-        "null"
-      ]
-    },
-    "currency_name": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "currency_symbol": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "feed_cpa_override": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "feed_cpc_override": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "indeed_bid_optimizer": {
-      "type": [
-        "boolean",
-        "null"
-      ]
-    },
-    "min_cpa": {
+    "cpa": {
       "type": [
         "number",
         "null"
       ]
     },
-    "net_cost_coef": {
+    "cpc": {
       "type": [
         "number",
         "null"
       ]
     },
-    "timezone": {
+    "cr": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "spend": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "currency": {
       "type": [
         "string",
         "null"
       ]
     },
-    "feed_url": {
+    "device": {
       "type": [
         "string",
         "null"
       ]
     },
-    "max_distance_for_geoclose": {
+    "company": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "job_date_posted": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "age": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "job_location": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "job_req_number": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "job_views": {
       "type": [
         "integer",
         "null"
       ]
     },
-    "external_id": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "external_ids": {
-      "type": [
-        "array",
-        "null"
-      ]
-    },
-    "feed_format": {
+    "impressions": {
       "type": [
         "integer",
         "null"
       ]
     },
-    "job_api_enabled": {
+    "applies_paid": {
       "type": [
-        "boolean",
+        "integer",
         "null"
       ]
     },
-    "job_expansions_enabled": {
+    "applies_organic": {
       "type": [
-        "boolean",
+        "integer",
         "null"
       ]
     },
-    "quality_enabled": {
+    "applies_unpaid": {
       "type": [
-        "boolean",
+        "integer",
         "null"
       ]
     },
-    "active_connection_indeed": {
+    "applies_total": {
       "type": [
-        "boolean",
+        "integer",
         "null"
       ]
     },
-    "active_connection_zip": {
+    "clicks_paid": {
       "type": [
-        "boolean",
+        "integer",
         "null"
       ]
     },
-    "active_connection_craigslist": {
+    "clicks_organic": {
       "type": [
-        "boolean",
+        "integer",
         "null"
       ]
     },
-    "contract_expiration": {
+    "clicks_unpaid": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "hired": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "qualified": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "resumes": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "job_category": {
       "type": [
         "string",
         "null"
       ]
     },
-    "sales_manager": {
+    "job_city": {
       "type": [
         "string",
         "null"
       ]
     },
-    "account_manager": {
+    "job_state": {
       "type": [
         "string",
         "null"
       ]
     },
-    "account_status": {
+    "job_country": {
       "type": [
         "string",
         "null"
       ]
     },
-    "job_board_rebate": {
+    "job_postal_code": {
       "type": [
-        "number",
+        "string",
         "null"
       ]
     },
-    "appcast_fee": {
+    "parent_job_id": {
       "type": [
-        "number",
+        "integer",
         "null"
       ]
     }

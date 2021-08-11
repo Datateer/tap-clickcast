@@ -1,5 +1,6 @@
 """Stream type classes for tap-clickcast."""
 from pathlib import Path
+from typing import Optional
 
 from tap_clickcast.client import ClickcastStream
 
@@ -8,43 +9,50 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 class EmployersStream(ClickcastStream):
     name = "employers"
+    # path = "/employers?employer_id=8583"
     path = "/employers"
     schema_filepath = SCHEMAS_DIR / "employers.json"
     primary_keys = ["employer_id"]
     replication_key = None
-    # how to limit ot just the selected fields?
+
+    def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
+        """Return a context dictionary for the child streams. Refer to https://sdk.meltano.com/en/latest/parent_streams.html"""
+        return {"employer_id": record["employer_id"]}
 
 
-# class UsersStream(ClickcastStream):
-#     """Define custom stream."""
+class CampaignsStream(ClickcastStream):
+    name = "campaigns"
+    path = "/campaigns"
+    # path = "/campaigns?campaign_id=95929"
+    schema_filepath = SCHEMAS_DIR / "campaigns.json"
+    primary_keys = ["campaign_id"]
+    replication_key = None
 
-#     name = "users"
-#     path = "/users"
-#     primary_keys = ["id"]
-#     replication_key = None
-#     # Optionally, you may also use `schema_filepath` in place of `schema`:
-#     # schema_filepath = SCHEMAS_DIR / "users.json"
-#     schema = th.PropertiesList(
-#         th.Property("name", th.StringType),
-#         th.Property("id", th.StringType),
-#         th.Property("age", th.IntegerType),
-#         th.Property("email", th.StringType),
-#         th.Property("street", th.StringType),
-#         th.Property("city", th.StringType),
-#         th.Property("state", th.StringType),
-#         th.Property("zip", th.StringType),
-#     ).to_dict()
+    def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
+        return {"campaign_id": record["campaign_id"]}
 
 
-# class GroupsStream(ClickcastStream):
-#     """Define custom stream."""
+class JobStatsStream(ClickcastStream):
+    name = "jobstats"
+    path = "/employer/{employer_id}/job_stats"
+    schema_filepath = SCHEMAS_DIR / "jobstats.json"
+    primary_keys = ["job_id"]
+    replication_key = None
+    parent_stream_type = EmployersStream
 
-#     name = "groups"
-#     path = "/groups"
-#     primary_keys = ["id"]
-#     replication_key = "modified"
-#     schema = th.PropertiesList(
-#         th.Property("name", th.StringType),
-#         th.Property("id", th.StringType),
-#         th.Property("modified", th.DateTimeType),
-#     ).to_dict()
+
+class JobsStream(ClickcastStream):
+    name = "jobs"
+    path = "/campaign/{campaign_id}/jobs"
+    schema_filepath = SCHEMAS_DIR / "jobs.json"
+    primary_keys = ["job_id"]
+    replication_key = None
+    parent_stream_type = CampaignsStream
+
+
+class PublishersStream(ClickcastStream):
+    name = "publishers"
+    path = "/publishers"
+    schema_filepath = SCHEMAS_DIR / "publishers.json"
+    primary_keys = ["publisher_id"]
+    replication_key = None

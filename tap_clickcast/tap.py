@@ -6,13 +6,11 @@ from singer_sdk import Tap, Stream
 from singer_sdk import typing as th  # JSON schema typing helpers
 
 # TODO: Import your custom stream types here:
-from tap_clickcast.streams import EmployersStream
+from tap_clickcast.streams import CampaignsStream, EmployersStream, JobsStream, JobStatsStream
 
 # TODO: Compile a list of custom stream types here
 #       OR rewrite discover_streams() below with your custom logic.
-STREAM_TYPES = [
-    EmployersStream,
-]
+STREAM_TYPES = [CampaignsStream, EmployersStream, JobsStream, JobStatsStream]
 
 
 class TapClickcast(Tap):
