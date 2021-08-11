@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tap-clickcast"
-version = "0.1.5"
+version = "0.1.6"
 description = "`tap-clickcast` is a Singer tap for clickcast, built with the Meltano SDK for Singer Taps."
 authors = ["Datateer"]
 license = "Apache 2.0"

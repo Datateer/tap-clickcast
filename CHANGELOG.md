@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.6 (2021-08-11)
+### Fix
+* Release to PyPI ([`d2c8676`](https://github.com/Datateer/tap-clickcast/commit/d2c8676de280882658e6d7956f446411aff45558))
+
 ## v0.1.5 (2021-08-11)
 ### Fix
 * Updated workflows ([`6e8e477`](https://github.com/Datateer/tap-clickcast/commit/6e8e47789b34285b989689191e705345d1ca4d15))
