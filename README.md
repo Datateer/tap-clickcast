@@ -76,6 +76,14 @@ Create a config file that contains a `partner_token` property, then run
 poetry run tap-clickcast --config config.json
 ```
 
+### Release new version
+
+Workflows in the `.github` will create a new version number using Semantic Release.
+
+Any commit that starts with `feat: ...` will create a new minor version (and any comment that starts with `fix: ...` will create a new minor version) when the commit is finally merged to main after a PR is approved and merged.
+
+Then the new version is published to PyPI, available at [https://pypi.org/project/tap-clickcast/]().
+
 ### Testing with [Meltano](https://www.meltano.com)
 
 _**Note:** This tap will work in any Singer environment and does not require Meltano.
