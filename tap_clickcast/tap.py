@@ -15,7 +15,6 @@ class TapClickcast(Tap):
 
     name = "tap-clickcast"
 
-    # TODO: Update this section with the actual config values you expect:
     config_jsonschema = th.PropertiesList(
         th.Property("partner_token", th.StringType, required=True),
         th.Property(
