@@ -14,8 +14,6 @@ pipx install tap-clickcast
 
 ### Accepted Config Options
 
-- [ ] `Developer TODO:` Provide a list of config options accepted by the tap.
-
 A full list of supported settings and capabilities for this
 tap is available by running:
 
