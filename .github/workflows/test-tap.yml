@@ -1,0 +1,36 @@
+name: Test Tap
+
+on: 
+  push:
+    branches-ignore:
+      - 'dependabot/**'
+  pull_request: [ main ]
+
+jobs:
+  test_tap:
+    name: Test Tap connectivity and Configuration
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: ['3.8']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+
+      - name: Install Dependencies
+        run: pip install poetry
+
+      - name: Test tap
+        env:
+          TAP_CLICKCAST_PARTNER_TOKEN: ${{ secrets.TAP_CLICKCAST_PARTNER_TOKEN }}
+        run: |
+          poetry install
+          poetry run tap-clickcast --test --config=ENV
