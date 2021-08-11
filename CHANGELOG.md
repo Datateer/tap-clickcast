@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.5 (2021-08-11)
+### Fix
+* Updated workflows ([`6e8e477`](https://github.com/Datateer/tap-clickcast/commit/6e8e47789b34285b989689191e705345d1ca4d15))
+
 ## v0.1.4 (2021-08-11)
 ### Fix
 * First release ([`f3410c7`](https://github.com/Datateer/tap-clickcast/commit/f3410c76e33e2c33f1d3c04704bc1ba02464f29a))
