@@ -46,7 +46,6 @@ plugins:
     - publishers.publisher_name
     - publishers.group
     - publishers.name_simple
-    - jobs.*
   loaders:
   - name: target-jsonl
     variant: andyh1203

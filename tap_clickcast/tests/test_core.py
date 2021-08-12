@@ -6,10 +6,7 @@ from singer_sdk.testing import get_standard_tap_tests
 
 from tap_clickcast.tap import TapClickcast
 
-SAMPLE_CONFIG = {
-    # "start_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
-    # TODO: Initialize minimal tap config
-}
+SAMPLE_CONFIG = {}
 
 
 # Run standard built-in tap tests from the SDK:
@@ -18,6 +15,3 @@ def test_standard_tap_tests():
     tests = get_standard_tap_tests(TapClickcast, config=SAMPLE_CONFIG)
     for test in tests:
         test()
-
-
-# TODO: Create additional tests as appropriate for your tap.

@@ -1,6 +1,8 @@
 """Tests standard tap features using the built-in SDK tests library."""
 
 import json
+import requests_mock
+
 from tap_clickcast.streams import EmployersStream
 from tap_clickcast.tap import TapClickcast
 
@@ -67,3 +69,17 @@ def test_get_next_page_token_returns_none_if_only_one_page():
     res = build_basic_response(1, page_count=1)
     actual = BASE_CLIENT.get_next_page_token(res, None)
     assert actual is None
+
+
+def test_handles_429_too_many_requests_and_retries():
+    with requests_mock.Mocker() as m:
+        fake_response_text = json.dumps(build_basic_response(1, page_count=1).json())
+        m.get(
+            "https://api.clickcast.cloud/clickcast/api/employers?fields=employer_id",
+            [
+                {"status_code": 429},
+                {"status_code": 429},
+                {"status_code": 200, "text": fake_response_text},
+            ],
+        )
+        BASE_CLIENT.sync()
