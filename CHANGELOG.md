@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.0 (2021-08-12)
+### Feature
+* Handle 429 timeouts with exponential backoff ([`a830103`](https://github.com/Datateer/tap-clickcast/commit/a830103a05d09d973b9ceb6c447872da3153cc54))
+
 ## v0.1.6 (2021-08-11)
 ### Fix
 * Release to PyPI ([`d2c8676`](https://github.com/Datateer/tap-clickcast/commit/d2c8676de280882658e6d7956f446411aff45558))
