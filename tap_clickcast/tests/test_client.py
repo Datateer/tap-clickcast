@@ -2,11 +2,17 @@
 
 import json
 import requests_mock
+import pytest
 
 from tap_clickcast.streams import EmployersStream
 from tap_clickcast.tap import TapClickcast
 
 SAMPLE_CONFIG = {"partner_token": "testing"}
+
+
+@pytest.fixture
+def tap() -> TapClickcast:
+    return TapClickcast(config={"partner_token": "testing"}, parse_env_config=False)
 
 
 class FakeResponse(object):
@@ -83,3 +89,11 @@ def test_handles_429_too_many_requests_and_retries():
             ],
         )
         BASE_CLIENT.sync()
+
+
+def test_get_params_returns_correct_page_size_param(tap):
+    # Chuck Officer gave us a hint to use the param _page_size to get up to 1000 records at once
+    stream = EmployersStream(tap)
+    params = stream.get_url_params({}, 2)
+    assert "_page_size" in params
+    assert params["_page_size"] == 1000

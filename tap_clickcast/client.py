@@ -104,7 +104,7 @@ class ClickcastStream(RESTStream):
 
     def get_url_params(self, context: Optional[dict], next_page_token: Optional[Any]) -> Dict[str, Any]:
         """Return a dictionary of values to be used in URL parameterization."""
-        params: dict = {}
+        params: dict = {"_page_size": 1000}
         if next_page_token:
             params["page"] = next_page_token
         if self.replication_key:
