@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.0 (2021-08-13)
+### Feature
+* Increase page size. fixes #6 ([`2de6c81`](https://github.com/Datateer/tap-clickcast/commit/2de6c81ae625c1b560d543607a4f787b6ebeed35))
+* Get jobs by employer rather than by each campaign. fixes #5 ([`1f0297f`](https://github.com/Datateer/tap-clickcast/commit/1f0297fbd3e4641f025bea0ca76ddd036741674f))
+
 ## v0.2.0 (2021-08-12)
 ### Feature
 * Handle 429 timeouts with exponential backoff ([`a830103`](https://github.com/Datateer/tap-clickcast/commit/a830103a05d09d973b9ceb6c447872da3153cc54))
