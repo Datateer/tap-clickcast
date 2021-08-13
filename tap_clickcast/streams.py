@@ -28,9 +28,6 @@ class CampaignsStream(ClickcastStream):
     primary_keys = ["campaign_id"]
     replication_key = None
 
-    def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
-        return {"campaign_id": record["campaign_id"]}
-
 
 class JobStatsStream(ClickcastStream):
     name = "jobstats"
@@ -43,11 +40,11 @@ class JobStatsStream(ClickcastStream):
 
 class JobsStream(ClickcastStream):
     name = "jobs"
-    path = "/campaign/{campaign_id}/jobs"
+    path = "/employer/{employer_id}/jobs"
     schema_filepath = SCHEMAS_DIR / "jobs.json"
     primary_keys = ["job_id"]
     replication_key = None
-    parent_stream_type = CampaignsStream
+    parent_stream_type = EmployersStream
 
 
 class PublishersStream(ClickcastStream):
