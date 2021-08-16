@@ -559,7 +559,7 @@ python-versions = "*"
 
 [[package]]
 name = "singer-sdk"
-version = "0.3.3"
+version = "0.3.4"
 description = "A framework for building Singer taps"
 category = "main"
 optional = false
@@ -806,8 +806,10 @@ cryptography = [
     {file = "cryptography-3.4.7-cp36-abi3-win_amd64.whl", hash = "sha256:de4e5f7f68220d92b7637fc99847475b59154b7a1b3868fb7385337af54ac9ca"},
     {file = "cryptography-3.4.7-pp36-pypy36_pp73-manylinux2010_x86_64.whl", hash = "sha256:26965837447f9c82f1855e0bc8bc4fb910240b6e0d16a664bb722df3b5b06873"},
     {file = "cryptography-3.4.7-pp36-pypy36_pp73-manylinux2014_x86_64.whl", hash = "sha256:eb8cc2afe8b05acbd84a43905832ec78e7b3873fb124ca190f574dca7389a87d"},
+    {file = "cryptography-3.4.7-pp37-pypy37_pp73-macosx_10_10_x86_64.whl", hash = "sha256:b01fd6f2737816cb1e08ed4807ae194404790eac7ad030b34f2ce72b332f5586"},
     {file = "cryptography-3.4.7-pp37-pypy37_pp73-manylinux2010_x86_64.whl", hash = "sha256:7ec5d3b029f5fa2b179325908b9cd93db28ab7b85bb6c1db56b10e0b54235177"},
     {file = "cryptography-3.4.7-pp37-pypy37_pp73-manylinux2014_x86_64.whl", hash = "sha256:ee77aa129f481be46f8d92a1a7db57269a2f23052d5f2433b4621bb457081cc9"},
+    {file = "cryptography-3.4.7-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:bf40af59ca2465b24e54f671b2de2c59257ddc4f7e5706dbd6930e26823668d3"},
     {file = "cryptography-3.4.7.tar.gz", hash = "sha256:3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"},
 ]
 dataclasses = [
@@ -1045,8 +1047,8 @@ simplejson = [
     {file = "simplejson-3.11.1.win32-py3.5.exe", hash = "sha256:c76d55d78dc8b06c96fd08c6cc5e2b0b650799627d3f9ca4ad23f40db72d5f6d"},
 ]
 singer-sdk = [
-    {file = "singer-sdk-0.3.3.tar.gz", hash = "sha256:a0e309e58f3674923bf6aec9fbc85ee67f74872e47a30515a65c1ec56a354ff8"},
-    {file = "singer_sdk-0.3.3-py3-none-any.whl", hash = "sha256:e7554818ee1662d4c564a99872163b0383cdac5c2dcdb6f2b5b7e44b16040e3f"},
+    {file = "singer-sdk-0.3.4.tar.gz", hash = "sha256:128f570d29afc7c7c30d4b975e3ea4c682d9ef83d7b325c2d97c65c0efafd871"},
+    {file = "singer_sdk-0.3.4-py3-none-any.whl", hash = "sha256:cc5733863ddbffd8303bc5dcdafef54cd3e146dabbea9d58df3d5893e82af0df"},
 ]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
