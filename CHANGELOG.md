@@ -2,6 +2,15 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2023-02-07)
+### Feature
+* Upgrade python to 3.9 ([`6107011`](https://github.com/Datateer/tap-clickcast/commit/61070112377e51fa878b04a46cbf1b00b22245ed))
+* Upgrade python to 3.9 ([`f639ca9`](https://github.com/Datateer/tap-clickcast/commit/f639ca97681ae7c95cc40f2bac0d29f1360a6201))
+
+### Fix
+* Coverage to 85 ([`853378a`](https://github.com/Datateer/tap-clickcast/commit/853378a4265fedfea914d42125b19b81d1d9b462))
+* Coverage to 90 ([`982df7e`](https://github.com/Datateer/tap-clickcast/commit/982df7e6071f6e226ea52c4e0ba18986d6751ffe))
+
 ## v0.3.0 (2021-08-13)
 ### Feature
 * Increase page size. fixes #6 ([`2de6c81`](https://github.com/Datateer/tap-clickcast/commit/2de6c81ae625c1b560d543607a4f787b6ebeed35))
