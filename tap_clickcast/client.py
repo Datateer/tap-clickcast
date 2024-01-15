@@ -1,9 +1,8 @@
 """REST client handling, including ClickcastStream base class."""
 
-import backoff
 import requests
 from pathlib import Path
-from typing import Any, Dict, Optional, Iterable, cast
+from typing import Any, Dict, Optional, Iterable
 
 from singer_sdk.helpers.jsonpath import extract_jsonpath
 from singer_sdk.streams import RESTStream
@@ -16,43 +15,9 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 class ClickcastStream(RESTStream):
     """clickcast stream class."""
 
-    # TODO: this is overriding the _request_with_backoff so that we can handle 429 appropriately
-    # this should be removed and code be refactored when https://gitlab.com/meltano/sdk/-/issues/137 is completed
-    @backoff.on_exception(
-        backoff.expo,
-        (requests.exceptions.RequestException),
-        max_tries=8,
-        giveup=lambda e: e.response is not None
-        and 400 <= e.response.status_code < 500
-        and e.response.status_code != 429,
-        factor=2,
-    )
-    def _request_with_backoff(self, prepared_request, context: Optional[dict]) -> requests.Response:
-        response = self.requests_session.send(prepared_request)
-        if self._LOG_REQUEST_METRICS:
-            extra_tags = {}
-            if self._LOG_REQUEST_METRIC_URLS:
-                extra_tags["url"] = cast(str, prepared_request.path_url)
-            self._write_request_duration_log(
-                endpoint=self.path,
-                response=response,
-                context=context,
-                extra_tags=extra_tags,
-            )
-        if response.status_code in [401, 403]:
-            self.logger.info("Failed request for {}".format(prepared_request.url))
-            self.logger.info(f"Reason: {response.status_code} - {str(response.content)}")
-            raise RuntimeError("Requested resource was unauthorized, forbidden, or not found.")
-        if response.status_code == 429:
-            self.logger.info("Throttled request for {}".format(prepared_request.url))
-            raise requests.exceptions.RequestException(request=prepared_request, response=response)
-        elif response.status_code >= 400:
-            raise RuntimeError(
-                f"Error making request to API: {prepared_request.url} "
-                f"[{response.status_code} - {str(response.content)}]".replace("\\n", "\n")
-            )
-
-        return response
+    @property
+    def backoff_max_tries(self):
+        return 10
 
     @property
     def url_base(self) -> str:
