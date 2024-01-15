@@ -1,9 +1,8 @@
 """REST client handling, including ClickcastStream base class."""
 
-import backoff
 import requests
 from pathlib import Path
-from typing import Any, Dict, Optional, Iterable, cast
+from typing import Any, Dict, Optional, Iterable
 
 from singer_sdk.helpers.jsonpath import extract_jsonpath
 from singer_sdk.streams import RESTStream
@@ -19,7 +18,6 @@ class ClickcastStream(RESTStream):
     @property
     def backoff_max_tries(self):
         return 10
-
 
     @property
     def url_base(self) -> str:

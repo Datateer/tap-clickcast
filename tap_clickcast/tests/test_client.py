@@ -90,6 +90,7 @@ def test_handles_429_too_many_requests_and_retries():
               )
         BASE_CLIENT.sync()
 
+
 def test_handles_504_gateway_timeout_and_retries():
     """Sometimes the API returns retriable 504 and 500 status codes. We should retry those"""
     with requests_mock.Mocker() as m:
@@ -103,6 +104,7 @@ def test_handles_504_gateway_timeout_and_retries():
               ],
               )
         BASE_CLIENT.sync()
+
 
 def test_get_params_returns_correct_page_size_param(tap):
     # Chuck Officer gave us a hint to use the param _page_size to get up to 1000 records at once
