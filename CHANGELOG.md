@@ -2,6 +2,21 @@
 
 
 
+## v0.6.1 (2024-01-16)
+
+### Fix
+
+* fix: long_description ([`9061a16`](https://github.com/Datateer/tap-clickcast/commit/9061a16d2088197e7a0270683d66f4f7ba4de92f))
+
+* fix: id-token ([`9bdc149`](https://github.com/Datateer/tap-clickcast/commit/9bdc1497a7198978bc529e5a81d5c93862ac4134))
+
+### Unknown
+
+* Merge pull request #61 from Datateer/handle-504-http-codes
+
+Handle 504 http codes ([`ba6513b`](https://github.com/Datateer/tap-clickcast/commit/ba6513b52b11d46b02ed98ad887aaf25c8adde05))
+
+
 ## v0.6.0 (2024-01-16)
 
 ### Feature
