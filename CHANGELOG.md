@@ -2,6 +2,31 @@
 
 
 
+## v0.6.0 (2024-01-16)
+
+### Feature
+
+* feat: versioning ([`4182e8b`](https://github.com/Datateer/tap-clickcast/commit/4182e8b945976e7a0a7090012b933ff74a887fe9))
+
+* feat: versioning ([`23fb3c0`](https://github.com/Datateer/tap-clickcast/commit/23fb3c0e34eca0c2712697d8ed96aa7488e94ba9))
+
+* feat: attempt publishing ([`ae8ed12`](https://github.com/Datateer/tap-clickcast/commit/ae8ed121eece31dd4251cf0688cfe2d3dc2322e1))
+
+### Unknown
+
+* Merge pull request #60 from Datateer/handle-504-http-codes
+
+feat: versioning ([`c89b960`](https://github.com/Datateer/tap-clickcast/commit/c89b96045e8a5ed86c1526b79607fd688c7e7da1))
+
+* Merge pull request #59 from Datateer/handle-504-http-codes
+
+feat: versioning ([`e77be8b`](https://github.com/Datateer/tap-clickcast/commit/e77be8b4f1bd3cc118f0d27c6b26b55b99b9c8f5))
+
+* Merge pull request #58 from Datateer/handle-504-http-codes
+
+feat: attempt publishing ([`53b0154`](https://github.com/Datateer/tap-clickcast/commit/53b0154b9d81547d8a905b995ffca0564d06fc30))
+
+
 ## v0.5.0 (2024-01-15)
 
 ### Feature
