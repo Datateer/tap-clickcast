@@ -39,12 +39,29 @@ jobs:
         run: |
           poetry run coverage run -m pytest && poetry run coverage report -m
 
-  Release:
+  BumpVersion:
     needs: Quality
     # https://github.community/t/how-do-i-specify-job-dependency-running-in-another-workflow/16482
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    concurrency: release
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Python Semantic Release
+        uses: relekang/python-semantic-release@master
+        with:
+          # a special token in github at the organization account level
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  Release:
+    needs: BumpVersion
+    # https://github.community/t/how-do-i-specify-job-dependency-running-in-another-workflow/16482
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
+      contents: read
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.9
