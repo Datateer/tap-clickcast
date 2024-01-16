@@ -28,14 +28,7 @@ build-backend = "poetry.core.masonry.api"
 tap-clickcast = 'tap_clickcast.tap:TapClickcast.cli'
 
 [tool.semantic_release]
-version_variable = [
-    # "dr_sven/__init__.py:__version__",
-    "pyproject.toml:version"
-]
-branch = "main"
-upload_to_pypi = true
-upload_to_release = true
-build_command = "pip install poetry && poetry build"
+version_toml = ["pyproject.toml:tool.poetry.version",]
 
 [tool.coverage.run]
 omit = [".*", "*/site-packages/*"]
